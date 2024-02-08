@@ -2,7 +2,7 @@ import TodoPriority from "./TodoPriority";
 
 const TodoPriorityBox = () => {
   return (
-    <div className="bg-[#354259] p-5 rounded-md hidden md:block">
+    <div className="bg-[#354259] p-5 rounded-2xl hidden md:block border-b-[6px] border-[#44A0A0]">
       <h3 className="text-lg capitalize font-semibold mb-5 flex gap-3 items-center">
         <hr className="w-12 h-[2px] rounded-md bg-white" />
         <span>Task Prority</span>

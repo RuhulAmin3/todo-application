@@ -1,30 +1,28 @@
-# React + TypeScript + Vite
+# Starting with Todo-Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Todo](https://i.ibb.co/LCfhR7w/Stack-1.png)
 
-Currently, two official plugins are available:
+[Todo-Application](https://todo-web-site-app.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#### Live link: https://todo-web-site-app.netlify.app/
 
-## Expanding the ESLint configuration
+### Key Features:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. user can add, edit, delete all the Task. Each task contain priority, complete or incomplete status.
 
-- Configure the top-level `parserOptions` property like this:
+2. I'm using local storage to store all the added tasks, ensuring that they remain available even after the page is refreshed.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+3. user can filter tasks based on the priority and search by the task title.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+4. user can see how many tasks are added and how many are complete and incomplete.
+
+### Key Objectives:
+
+- Maintain a well-structured project folder hierarchy to keep the codebase organized and easily maintainable. Components, Context API, useReducer, styles, and utility functions will be neatly organized.
+
+### Technology Stack
+
+- _Language:_ Typescript
+- _Frontend Library:_ React
+- _Styling:_ Tailwind CSS
+- _State Management:_ Context API and useReducer hook
