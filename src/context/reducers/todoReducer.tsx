@@ -25,31 +25,29 @@ const todoReducer = (
 
     case LOAD_TODO:
       const parsedState = JSON.parse(payload as string);
-
       return parsedState;
 
     case EDIT_TODO:
-      let updatedTodo;
+      let updatedTodo: TodoType;
+      let updateTodoList;
       if (typeof payload != "string") {
-        const findTodo =
-          state.todoList.find((todo) => todo.id == payload.id) || {};
-        updatedTodo = Object.assign(findTodo, payload);
-      }
-      // const todoList  = state.todoList.splice()
-      const todoList = [
-        ...state.todoList.filter((todo) => {
-          if (typeof payload != "string") {
-            return todo.id !== payload.id;
+        const findIdx = state.todoList.findIndex(
+          (todo) => todo.id == payload.id
+        );
+        updatedTodo = Object.assign({}, state.todoList[findIdx], payload);
+        updateTodoList = state.todoList.map((todo, idx) => {
+          if (idx === findIdx) {
+            return updatedTodo;
           }
-        }),
-        updatedTodo,
-      ];
+          return todo;
+        });
+        console.log(updateTodoList);
+      }
 
       const editedState = {
         ...state,
-        todoList: todoList,
+        todoList: updateTodoList,
       };
-
       localStorage.setItem("state", JSON.stringify(editedState));
 
       return editedState;

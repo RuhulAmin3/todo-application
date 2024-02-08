@@ -4,12 +4,12 @@ import Modal from "@/components/Modal";
 import TodoList from "@/components/TodoList";
 import { GlobalContext } from "@/context/Provider";
 import { filterTodo, loadTodo, searchTodo } from "@/context/actions";
-import { Priority } from "@/context/intialState";
+import { Priority, Status } from "@/context/intialState";
 import { useContext, useEffect, useState } from "react";
 
 const Home = () => {
   const [isModal, setIsModal] = useState(false);
-  const { dispatch } = useContext(GlobalContext);
+  const { states, dispatch } = useContext(GlobalContext);
   const state = localStorage.getItem("state");
 
   useEffect(() => {
@@ -25,6 +25,14 @@ const Home = () => {
   const handleFilter = (priority: string) => {
     filterTodo(priority)(dispatch);
   };
+
+  const completedTodo = states?.todoList?.filter(
+    (todo) => todo.status == Status.Completed
+  ).length;
+
+  const incompletedTodo = states?.todoList?.filter(
+    (todo) => todo.status == Status.Incomplete
+  ).length;
 
   return (
     <div className="text-white bg-[#2B1887] w-1/2 m-auto p-4">
@@ -58,6 +66,10 @@ const Home = () => {
         </select>
       </div>
       <TodoList />
+      <div className="flex gap-5 flex-end mx-right">
+        <p> {completedTodo} Completed Todo </p>
+        <p> {incompletedTodo} Incompleted Todo </p>
+      </div>
       <Modal showModal={isModal} setShowModal={setIsModal} title="Add Todo">
         <AddTodoForm setIsModal={setIsModal} />
       </Modal>

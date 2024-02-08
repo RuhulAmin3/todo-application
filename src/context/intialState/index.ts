@@ -19,16 +19,13 @@ export type TodoType = {
 
 export type InitialStateType = {
   todoList: TodoType[];
-  completedTodo: number;
-  incompleteTodo: number;
+
   searchText: string;
   filteredText: string;
 };
 
 export const initialState: InitialStateType = {
   todoList: [],
-  completedTodo: 0,
-  incompleteTodo: 0,
   searchText: "",
   filteredText: "",
 };
