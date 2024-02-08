@@ -5,7 +5,7 @@ import { GlobalContext } from "@/context/Provider";
 
 const TodoList = () => {
   // const states = JSON.parse(localStorage.getItem("state")!);
-  const { states } = useContext(GlobalContext);
+  const { states } = useContext(GlobalContext) || {};
   return (
     <>
       {states?.todoList?.map((todo: TodoType) => (

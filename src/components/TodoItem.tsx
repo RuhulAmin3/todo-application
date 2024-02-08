@@ -3,13 +3,16 @@ import { GlobalContext } from "@/context/Provider";
 import { deleteTodo } from "@/context/actions";
 import { TodoType } from "@/context/intialState";
 import { DeleteIcon, EditIcon } from "lucide-react";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import Modal from "./Modal";
+import { EditTodoForm } from "./EditTodoForm";
 
 type TodoPropType = {
   todo: TodoType;
 };
 const TodoItem = ({ todo }: TodoPropType) => {
   const { dispatch } = useContext(GlobalContext) || {};
+  const [showModal, setShowModal] = useState(false);
   let priorityColor = "";
   switch (todo.priority) {
     case "Low":
@@ -45,7 +48,7 @@ const TodoItem = ({ todo }: TodoPropType) => {
       </div>
       <div className="flex items-center space-x-4">
         <button
-          onClick={() => {}}
+          onClick={() => setShowModal(true)}
           className="text-blue-500 hover:text-blue-700"
         >
           <EditIcon />
@@ -56,6 +59,14 @@ const TodoItem = ({ todo }: TodoPropType) => {
         >
           <DeleteIcon />
         </button>
+
+        <Modal
+          title="Update Todo"
+          showModal={showModal}
+          setShowModal={setShowModal}
+        >
+          <EditTodoForm editableTodo={todo} setIsModal={setShowModal} />
+        </Modal>
       </div>
     </div>
   );
