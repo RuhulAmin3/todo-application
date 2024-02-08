@@ -31,7 +31,7 @@ export function EditTodoForm({
   };
 
   return (
-    <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
+    <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
       <input
         required
         value={todo.title}
@@ -66,7 +66,7 @@ export function EditTodoForm({
         ))}
       </select>
 
-      <Button type="submit">Update Todo</Button>
+      <Button type="submit">Update Task</Button>
     </form>
   );
 }

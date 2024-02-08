@@ -39,7 +39,7 @@ export function AddTodoForm({
   };
 
   return (
-    <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
+    <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
       <input
         required
         name="title"
@@ -71,7 +71,9 @@ export function AddTodoForm({
         ))}
       </select>
 
-      <Button type="submit">Add Todo</Button>
+      <Button type="submit" className="bg-white">
+        Submit Task
+      </Button>
     </form>
   );
 }
