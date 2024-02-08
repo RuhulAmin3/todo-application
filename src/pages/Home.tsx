@@ -37,12 +37,12 @@ const Home = () => {
 
   return (
     <>
-      <h3 className="text-xl font-bold p-4 uppercase text-[#E9C597] md:my-6">
+      <h3 className="text-xl font-bold p-4 uppercase text-[#E9C597] md:py-6">
         Task Management <br /> Application{" "}
       </h3>
-      <div className="text-white m-auto md:p-5 max-w-3/4 flex gap-4">
+      <div className="container text-white m-auto md:p-5 flex gap-4">
         <TodoPriorityBox />
-        <div className="flex-1 bg-[#354259] p-5 rounded-md">
+        <div className="flex-1 bg-[#354259] p-5 rounded-md w-full">
           <div className="flex justify-between flex-col md:flex-row">
             <Button
               type="button"
@@ -54,7 +54,7 @@ const Home = () => {
             <input
               name="searchText"
               onChange={(e) => handleChange(e.target.value)}
-              className="shadow appearance-none border rounded mb-3 px-3 py-3 text-gray-700 leading-tight focus:shadow-outline"
+              className="shadow appearance-none border rounded mb-3 px-3 py-3 text-gray-700 leading-tight focus:shadow-outline basis-1/2"
               placeholder="Search by task title"
             />
             <select
@@ -73,7 +73,7 @@ const Home = () => {
           </div>
           <TodoList />
           {states?.todoList?.length > 0 && (
-            <div className="flex items-center justify-center gap-5 font-bold text-[#44A0A0] text-xl">
+            <div className="flex items-center justify-center gap-5 font-bold text-[#44A0A0] text-xl flex-wrap">
               <p className="hover:text-white">
                 {" "}
                 Completed Task ({completedTodo})

@@ -41,7 +41,6 @@ const todoReducer = (
           }
           return todo;
         });
-        console.log(updateTodoList);
       }
 
       const editedState = {
