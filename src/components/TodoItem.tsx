@@ -7,6 +7,7 @@ import { useContext, useState } from "react";
 import Modal from "./Modal";
 import { EditTodoForm } from "./EditTodoForm";
 import Uncheck from "@/assets/Icons/Uncheck";
+import toast from "react-hot-toast";
 
 type TodoPropType = {
   todo: TodoType;
@@ -31,6 +32,7 @@ const TodoItem = ({ todo }: TodoPropType) => {
 
   const handleDelete = (id: string) => {
     deleteTodo(id)(dispatch);
+    toast.success("Todo delete successful");
   };
 
   const handleUpdateStatus = (status: string) => {

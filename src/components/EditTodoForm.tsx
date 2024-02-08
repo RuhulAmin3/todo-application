@@ -3,6 +3,7 @@ import Button from "./Button";
 import { Priority, TodoType } from "@/context/intialState";
 import { GlobalContext } from "@/context/Provider";
 import { editTodo } from "@/context/actions";
+import toast from "react-hot-toast";
 
 export function EditTodoForm({
   setIsModal,
@@ -26,6 +27,7 @@ export function EditTodoForm({
     e.preventDefault();
     setIsModal(false);
     editTodo(todo)(dispatch);
+    toast.success("Todo update successful");
   };
 
   return (

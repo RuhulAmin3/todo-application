@@ -61,21 +61,16 @@ const todoReducer = (
       return restState;
 
     case FILTER_TODO:
-      const filteredState = {
+      return {
         ...state,
         filteredText: payload,
       };
 
-      //localStorage.setItem("state", JSON.stringify(state));
-
-      return filteredState;
-
     case SEARCH_TODO:
-      const searchState = {
+      return {
         ...state,
         searchText: payload,
       };
-      return searchState;
 
     default:
       return state;

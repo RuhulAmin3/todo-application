@@ -66,10 +66,13 @@ const Home = () => {
         </select>
       </div>
       <TodoList />
-      <div className="flex gap-5 flex-end mx-right">
-        <p> {completedTodo} Completed Todo </p>
-        <p> {incompletedTodo} Incompleted Todo </p>
-      </div>
+      {states?.todoList?.length > 0 && (
+        <div className="flex gap-5 flex-end mx-right">
+          <p> {completedTodo} Completed Task </p>
+          <p> {incompletedTodo} Incompleted Task </p>
+          <p> {states?.todoList?.length} Total Task </p>
+        </div>
+      )}
       <Modal showModal={isModal} setShowModal={setIsModal} title="Add Todo">
         <AddTodoForm setIsModal={setIsModal} />
       </Modal>

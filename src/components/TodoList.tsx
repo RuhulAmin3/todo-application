@@ -30,6 +30,11 @@ const TodoList = () => {
 
   return (
     <>
+      {states?.todoList.length == 0 && (
+        <h1 className="text-center text-xl font-medium capitalize my-4">
+          There is no added todo
+        </h1>
+      )}
       {states?.todoList
         ?.filter(filterByPriority)
         .filter(searchByTitle)

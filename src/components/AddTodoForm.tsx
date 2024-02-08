@@ -3,6 +3,7 @@ import Button from "./Button";
 import { Priority, Status, TodoType } from "@/context/intialState";
 import { GlobalContext } from "@/context/Provider";
 import { addTodo } from "@/context/actions";
+import toast from "react-hot-toast";
 
 export function AddTodoForm({
   setIsModal,
@@ -30,6 +31,7 @@ export function AddTodoForm({
     e.preventDefault();
     setIsModal(false);
     addTodo(todo)(dispatch);
+    toast.success("todo added successfully");
     setTodo((prev) => ({
       ...prev,
       id: Date.now().toString(),

@@ -1,8 +1,16 @@
 import React, { createContext, useReducer } from "react";
-import { initialState } from "./intialState";
+import { InitialStateType, TodoType, initialState } from "./intialState";
 import todoReducer from "./reducers/todoReducer";
 
-export const GlobalContext = createContext({});
+interface ContextType {
+  states: InitialStateType;
+  dispatch: React.Dispatch<{ payload: string | TodoType; type: string }>;
+}
+
+export const GlobalContext = createContext<ContextType>({
+  states: initialState,
+  dispatch: () => {},
+});
 
 const { Provider: GlobalProvider } = GlobalContext;
 
