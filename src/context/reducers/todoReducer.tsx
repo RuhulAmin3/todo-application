@@ -26,6 +26,7 @@ const todoReducer = (
       const parsedState = JSON.parse(payload as string);
 
       return parsedState;
+
     case EDIT_TODO:
       let updatedTodo;
       if (typeof payload != "string") {
@@ -50,6 +51,7 @@ const todoReducer = (
       localStorage.setItem("state", JSON.stringify(editedState));
 
       return editedState;
+
     case DELETE_TODO:
       const restState = {
         ...state,
@@ -61,10 +63,7 @@ const todoReducer = (
     case FILTER_TODO:
       const filteredState = {
         ...state,
-        todoList: state.todoList.filter((todo) => {
-          if (payload == "") return true;
-          if (todo.priority == payload) return true;
-        }),
+        filteredText: payload,
       };
 
       //localStorage.setItem("state", JSON.stringify(state));
@@ -74,12 +73,10 @@ const todoReducer = (
     case SEARCH_TODO:
       const searchState = {
         ...state,
-        todoList: state.todoList.filter((todo) =>
-          todo.title.includes(payload as string)
-        ),
+        searchText: payload,
       };
-
       return searchState;
+
     default:
       return state;
   }
