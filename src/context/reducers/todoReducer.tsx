@@ -45,6 +45,7 @@ const todoReducer = (
 
       const editedState = {
         ...state,
+        filteredText: "",
         todoList: updateTodoList,
       };
       localStorage.setItem("state", JSON.stringify(editedState));
