@@ -1,22 +1,22 @@
-import { TodoType } from "@/context/intialState";
+import { Priority, TodoType } from "@/context/intialState";
 import TodoItem from "./TodoItem";
 import { useContext } from "react";
 import { GlobalContext } from "@/context/Provider";
 
 const TodoList = () => {
-  // const states = JSON.parse(localStorage.getItem("state")!);
   const { states } = useContext(GlobalContext) || {};
 
   const filterByPriority = (todo: TodoType) => {
     switch (states?.filteredText) {
-      case "Low":
-        return todo?.priority == states?.filteredText;
+      case Priority.Low:
+        return todo?.priority === states?.filteredText;
 
-      case "Medium":
-        return todo?.priority == states?.filteredText;
+      case Priority.Medium:
+        return todo?.priority === states?.filteredText;
 
-      case "High":
-        return todo?.priority == states?.filteredText;
+      case Priority.High:
+        return todo?.priority === states?.filteredText;
+
       default:
         return true;
     }

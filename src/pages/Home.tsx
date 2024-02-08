@@ -13,8 +13,10 @@ const Home = () => {
   const state = localStorage.getItem("state");
 
   useEffect(() => {
+    const parseState = JSON.parse(state!);
+    const stringState = JSON.stringify({ ...parseState, filteredText: "" });
     if (state) {
-      loadTodo(state)(dispatch);
+      loadTodo(stringState)(dispatch);
     }
   }, []);
 
