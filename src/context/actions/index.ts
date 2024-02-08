@@ -4,6 +4,7 @@ import {
   EDIT_TODO,
   FILTER_TODO,
   LOAD_TODO,
+  SEARCH_TODO,
 } from "@/constants/actionTypes";
 import { TodoType } from "../intialState";
 
@@ -47,7 +48,7 @@ export const searchTodo =
   (searchText: string) =>
   (dispatch: (arg0: { type: string; payload: string }) => void) => {
     dispatch({
-      type: FILTER_TODO,
+      type: SEARCH_TODO,
       payload: searchText,
     });
   };

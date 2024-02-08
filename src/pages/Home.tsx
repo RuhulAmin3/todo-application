@@ -3,7 +3,7 @@ import Button from "@/components/Button";
 import Modal from "@/components/Modal";
 import TodoList from "@/components/TodoList";
 import { GlobalContext } from "@/context/Provider";
-import { filterTodo, loadTodo } from "@/context/actions";
+import { filterTodo, loadTodo, searchTodo } from "@/context/actions";
 import { Priority } from "@/context/intialState";
 import { useContext, useEffect, useState } from "react";
 
@@ -20,6 +20,10 @@ const Home = () => {
     }
   }, []);
 
+  const handleChange = (value: string) => {
+    searchTodo(value)(dispatch);
+  };
+
   const handleFilter = (priority: string) => {
     filterTodo(priority)(dispatch);
   };
@@ -27,7 +31,7 @@ const Home = () => {
   return (
     <div className="text-white bg-[#2B1887] w-1/2 m-auto p-4">
       <h3 className="text-xl font-medium p-4">Todo Application </h3>
-      <div className="flex justify-between">
+      <div className="flex justify-between gap-3">
         <Button
           type="button"
           className="flex px-4 py-2 mb-3"
@@ -35,6 +39,12 @@ const Home = () => {
         >
           Add Todo
         </Button>
+        <input
+          name="searchText"
+          onChange={(e) => handleChange(e.target.value)}
+          className="shadow appearance-none border rounded mb-3 px-3 text-gray-700 leading-tight focus:shadow-outline"
+          placeholder="Search by task title"
+        />
         <select
           required
           name="priority"

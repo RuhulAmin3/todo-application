@@ -22,11 +22,20 @@ const TodoList = () => {
     }
   };
 
+  const searchByTitle = (todo: TodoType) => {
+    if (todo.title.toLowerCase().includes(states?.searchText.toLowerCase())) {
+      return true;
+    }
+  };
+
   return (
     <>
-      {states?.todoList?.filter(filterByPriority).map((todo: TodoType) => (
-        <TodoItem todo={todo} key={todo.id} />
-      ))}
+      {states?.todoList
+        ?.filter(filterByPriority)
+        .filter(searchByTitle)
+        .map((todo: TodoType) => (
+          <TodoItem todo={todo} key={todo.id} />
+        ))}
     </>
   );
 };
