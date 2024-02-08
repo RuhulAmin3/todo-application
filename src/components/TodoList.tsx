@@ -35,12 +35,13 @@ const TodoList = () => {
           There is no added task yet
         </p>
       )}
-      {states?.todoList?.filter(filterByPriority).filter(searchByTitle)
-        .length == 0 && (
-        <p className="text-center text-xl font-medium my-4">
-          No task found by the query. Try with another query!!!
-        </p>
-      )}
+      {states?.todoList.length > 0 &&
+        states?.todoList?.filter(filterByPriority).filter(searchByTitle)
+          .length == 0 && (
+          <p className="text-center text-xl font-medium my-4">
+            No task found by the query. Try with another query!!!
+          </p>
+        )}
       {states?.todoList?.filter(filterByPriority).filter(searchByTitle).length >
         0 &&
         states?.todoList

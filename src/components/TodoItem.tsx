@@ -73,15 +73,14 @@ const TodoItem = ({ todo }: TodoPropType) => {
         >
           <DeleteIcon />
         </button>
-
-        <Modal
-          title="Update Todo"
-          showModal={showModal}
-          setShowModal={setShowModal}
-        >
-          <EditTodoForm editableTodo={todo} setIsModal={setShowModal} />
-        </Modal>
       </div>
+      <Modal
+        title="Update Task"
+        showModal={showModal}
+        setShowModal={setShowModal}
+      >
+        <EditTodoForm editableTodo={todo} setIsModal={setShowModal} />
+      </Modal>
     </div>
   );
 };

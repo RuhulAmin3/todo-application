@@ -20,7 +20,7 @@ const Modal = ({
             onClick={() => setShowModal(false)}
           ></div>
 
-          <div className=" rounded-lg overflow-hidden transform text-white border-2 border-white">
+          <div className="m-5 md:m-0 rounded-lg overflow-hidden transform text-white border-2 border-white">
             <div className="bg-[#354259] p-8">
               <h3 className="text-3xl text-white uppercase font-semibold mb-7">
                 {title}

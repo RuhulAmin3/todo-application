@@ -71,9 +71,7 @@ export function AddTodoForm({
         ))}
       </select>
 
-      <Button type="submit" className="bg-white">
-        Submit Task
-      </Button>
+      <Button type="submit">Submit Task</Button>
     </form>
   );
 }
