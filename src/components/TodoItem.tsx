@@ -1,11 +1,12 @@
 import CheckMark from "@/assets/Icons/CheckMark";
 import { GlobalContext } from "@/context/Provider";
-import { deleteTodo } from "@/context/actions";
-import { TodoType } from "@/context/intialState";
+import { deleteTodo, editTodo } from "@/context/actions";
+import { Status, TodoType } from "@/context/intialState";
 import { DeleteIcon, EditIcon } from "lucide-react";
 import { useContext, useState } from "react";
 import Modal from "./Modal";
 import { EditTodoForm } from "./EditTodoForm";
+import Uncheck from "@/assets/Icons/Uncheck";
 
 type TodoPropType = {
   todo: TodoType;
@@ -32,10 +33,20 @@ const TodoItem = ({ todo }: TodoPropType) => {
     deleteTodo(id)(dispatch);
   };
 
+  const handleUpdateStatus = (status: string) => {
+    const updatedStatus =
+      status === Status.Completed ? Status.Incomplete : Status.Completed;
+    const updatedTodo = { ...todo, status: updatedStatus };
+    editTodo(updatedTodo)(dispatch);
+  };
+
   return (
     <div className="border rounded-lg p-4 mb-4 flex items-center justify-between">
-      <div className="cursor-pointer">
-        <CheckMark />
+      <div
+        className="cursor-pointer"
+        onClick={() => handleUpdateStatus(todo?.status)}
+      >
+        {todo?.status == Status.Completed ? <CheckMark /> : <Uncheck />}
       </div>
       <div className="flex-grow">
         <h3 className="font-bold text-lg">{todo.title}</h3>

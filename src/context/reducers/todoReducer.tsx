@@ -17,6 +17,7 @@ const todoReducer = (
     case ADD_TODO:
       const updatedState = {
         ...state,
+        filteredText: "",
         todoList: [...state.todoList, payload],
       };
       localStorage.setItem("state", JSON.stringify(updatedState));
@@ -34,6 +35,7 @@ const todoReducer = (
           state.todoList.find((todo) => todo.id == payload.id) || {};
         updatedTodo = Object.assign(findTodo, payload);
       }
+      // const todoList  = state.todoList.splice()
       const todoList = [
         ...state.todoList.filter((todo) => {
           if (typeof payload != "string") {
