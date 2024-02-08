@@ -44,7 +44,7 @@ const TodoItem = ({ todo }: TodoPropType) => {
   };
 
   return (
-    <div className="border rounded-lg p-4 mb-4 flex items-center justify-between">
+    <div className="border rounded-lg p-4 mb-4 flex items-center justify-between flex-col gap-4 md:flex-row md:gap-0">
       <div
         className="cursor-pointer"
         onClick={() => handleUpdateStatus(todo?.status)}

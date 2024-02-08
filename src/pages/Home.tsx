@@ -40,10 +40,10 @@ const Home = () => {
       <h3 className="text-xl font-bold p-4 uppercase text-[#E9C597] md:my-6">
         Task Management <br /> Application{" "}
       </h3>
-      <div className="text-white m-auto p-5 w-3/4 flex gap-4">
+      <div className="text-white m-auto md:p-5 max-w-3/4 flex gap-4">
         <TodoPriorityBox />
         <div className="flex-1 bg-[#354259] p-5 rounded-md">
-          <div className="flex justify-between ">
+          <div className="flex justify-between flex-col md:flex-row">
             <Button
               type="button"
               className="mb-3"
@@ -54,18 +54,18 @@ const Home = () => {
             <input
               name="searchText"
               onChange={(e) => handleChange(e.target.value)}
-              className="shadow appearance-none border rounded mb-3 px-3 text-gray-700 leading-tight focus:shadow-outline"
+              className="shadow appearance-none border rounded mb-3 px-3 py-3 text-gray-700 leading-tight focus:shadow-outline"
               placeholder="Search by task title"
             />
             <select
               required
               name="priority"
-              className="appearance-none border border-gray-400 hover:border-gray-500 px-4  rounded shadow leading-tight focus:outline-none focus:shadow-outline mb-3 bg-[#44A0A0] text-white"
+              className="appearance-none border border-gray-400 hover:border-gray-500 px-2 py-2 md:px-4 rounded shadow leading-tight focus:outline-none focus:shadow-outline mb-3 bg-[#44A0A0] text-white"
               onChange={(e) => handleFilter(e.target.value)}
             >
               <option value={""}>Filter by Priority</option>
               {Object.keys(Priority).map((option) => (
-                <option key={option} value={option}>
+                <option key={option} value={option} className="py-2 w-full">
                   {option}
                 </option>
               ))}
