@@ -1,6 +1,6 @@
 # Starting with Todo-Application
 
-![Todo](https://i.ibb.co/LCfhR7w/Stack-1.png)
+![Todo](https://i.ibb.co/Y2pZQcs/todo.jpg)
 
 [Todo-Application](https://todo-web-site-app.netlify.app/)
 
